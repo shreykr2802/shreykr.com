@@ -1,0 +1,107 @@
+.title {
+    color: black;
+    font-weight: 800;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.designation {
+    color: gray;
+    font-weight: 800;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.underline {
+    width: 20%;
+    height: 5px;
+    background-color: #296c92;
+    border-radius: 5px;
+    margin-top: 1%;
+}
+
+.about-description {
+    margin-top: 1%;
+    color: gray;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-align: justify;
+}
+
+.skill-title {
+    color: black;
+    font-weight: 800;
+    font-size: 1.6rem;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 20px;
+}
+
+.heading {
+    color: #296c92;
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    height: 20px;
+    padding-bottom: 20px;
+}
+
+.skill-name {
+    color: gray;
+    font-weight: 800;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-flex;
+    height: 60px;
+}
+
+.skill-name p {
+    height: 30px;
+    margin-right: 10px;
+    border-bottom: 2px solid rgba(0,0,0,0.4);
+}
+
+.passion-name {
+    color: gray;
+    font-weight: 800;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-flex;
+    height: 60px;
+}
+
+.passion-name p {
+    height: 30px;
+    margin: 10px;
+}
+
+.language-name {
+    color: gray;
+    font-weight: 800;
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-flex;
+    height: 60px;
+}
+
+.language-name p {
+    height: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.english-bar {
+    width: 100%;
+    background-color: #296c92;
+    height: 20px;
+    z-index: 5;
+    border-radius: 15px;
+}
+
+.hindi-bar {
+    width: 100%;
+    background-color: #296c92;
+    height: 20px;
+    z-index: 5;
+    border-radius: 15px;
+}

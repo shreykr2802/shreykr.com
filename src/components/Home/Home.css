@@ -1,0 +1,23 @@
+.Hello-Text-White {
+    left: 40vw;
+    top: 5vw;
+    position: absolute;
+    font-size: 10rem;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-flow: column;
+    letter-spacing: 0.8rem;
+    font-weight: 600;
+}
+
+.Hello-Text-Blue {
+    left: 40vw;
+    top: 5vw;
+    position: absolute;
+    font-size: 10rem;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-flow: column;
+    letter-spacing: 0.8rem;
+    font-weight: 600;
+}
