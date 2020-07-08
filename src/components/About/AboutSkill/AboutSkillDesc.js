@@ -9,7 +9,6 @@ const AboutSkillDesc = props => {
     return (
         <Fragment>
             <div className="skill-title"><span>Skills</span></div>
-                <div className="heading"><span>Development</span></div>
                 <div className="skill-name">
                     <p><FaReact color="#296c92" /> React</p>
                     <p><FaAngular color="#296c92" /> Angular</p>

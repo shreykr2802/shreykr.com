@@ -9,7 +9,7 @@ const AboutPage = styled.section`
         height: 100vh;
         width: 100%;
         user-select: none;
-        overflow: hidden;
+        overflow-y: hidden;
     `;
 
 const CorouselAbout = styled.div`
@@ -18,6 +18,13 @@ const CorouselAbout = styled.div`
         min-width: 100%;
         width: 100%;
     `;
+
+const CorouselWrapper = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+`;
 
 const About = props => {
 
@@ -28,13 +35,6 @@ const About = props => {
     let corouselElement;
 
     let translatedWidth = 0;
-
-    const CorouselWrapper = styled.div`
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-    `;
 
     const unify = event => {
         return event.changedTouches ? event.changedTouches[0] : event

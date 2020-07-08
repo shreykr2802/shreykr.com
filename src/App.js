@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 
-import Toolbar from './components/Navigation/Toolbar/Toolbar';
 import Home from './components/Home/Home';
 import About from './components/About/About';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
 
   return (
     <Fragment>
-        <Toolbar />
+        <Navigation />
         <Home />
         <About />
     </Fragment>

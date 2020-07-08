@@ -9,7 +9,6 @@ const AboutSkillPassion = props => {
     return(
         <Fragment>
             <div className="skill-title"><span>Passions</span></div>
-                <div className="heading"><span></span></div>
                 <div className="passion-name">
                     <div style={ { display: 'flex', flexFlow: 'row' } }>
                         <RiComputerLine color="#296c92" style={ { paddingTop: '10px' } } /> <p>Technology</p>
