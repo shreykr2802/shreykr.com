@@ -60,6 +60,7 @@ const NavButton = styled.a`
     color: white;
     font-weight: 600;
     padding: 10px;
+
     &:active {
         color: #296c92;
     }
@@ -83,6 +84,7 @@ const Logo = styled.img`
 `;
 
 const NavigationItems = props => {
+
     return (
         <NavigationItemsDiv>
             <NavDivLeft>

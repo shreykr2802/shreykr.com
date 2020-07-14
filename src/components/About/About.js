@@ -5,19 +5,19 @@ import AboutInfo from './AboutInfo/AboutInfo';
 import AboutSkill from './AboutSkill/AboutSkill';
 
 const AboutPage = styled.section`
-        background: white;
-        height: 100vh;
-        width: 100%;
-        user-select: none;
-        overflow-y: hidden;
-    `;
+    background: white;
+    height: 100vh;
+    width: 100%;
+    user-select: none;
+    overflow: hidden;
+`;
 
 const CorouselAbout = styled.div`
-        height: 80vh;
-        position: relative;
-        min-width: 100%;
-        width: 100%;
-    `;
+    height: 80vh;
+    position: relative;
+    min-width: 100%;
+    width: 100%;
+`;
 
 const CorouselWrapper = styled.div`
     width: 100%;
@@ -69,7 +69,7 @@ const About = props => {
     }
 
     return (
-        <AboutPage id="about">
+        <AboutPage id="about" ref={ props.about }>
             <CorouselWrapper onMouseDown={ lockHandler } onTouchStart={ lockHandler }
                 onMouseMove={ clickAndDragHandler } onTouchMove={ clickAndDragHandler }
                 onMouseUp={ onClickAndDragEnd } onTouchEnd={ onClickAndDragEnd }

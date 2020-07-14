@@ -102,7 +102,7 @@ const AboutSkill = props => {
                 <AboutSkillLanguage />
                 <SwipeRightDiv>
                     <SwipeRight>
-                        <span style={ { marginRight: '3px' } }>Swipe Right</span>
+                        <span style={ { marginRight: '3px' } }>Swipe</span>
                         <FaArrowRight />
                     </SwipeRight>
                 </SwipeRightDiv>

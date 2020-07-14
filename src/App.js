@@ -1,18 +1,26 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import Navigation from './components/Navigation/Navigation';
+import Layout from './containers/Layout/Layout';
+
+import homeReducer from './store/reducers/home';
+
+const rootReducer = combineReducers({
+    home: homeReducer
+});
+
+const store = createStore(rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 function App() {
 
-  return (
-    <Fragment>
-        <Navigation />
-        <Home />
-        <About />
-    </Fragment>
-  );
+    return (
+        <Provider store={ store }>
+            <Layout />
+        </Provider>
+    );
 }
 
 export default App;

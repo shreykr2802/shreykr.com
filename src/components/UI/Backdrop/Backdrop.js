@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useSelector } from 'react-redux';
+
 const BackdropBox = styled.div`
     position: fixed;
     z-index: 9;
@@ -13,8 +15,11 @@ const BackdropBox = styled.div`
 `;
 
 const Backdrop = props => {
+
+    const sideDrawerOpen = useSelector(state => state.home.isOpen);
+
     return (
-        <BackdropBox onClick={ props.closed } show={ props.show } />
+        <BackdropBox onClick={ props.closed } show={ sideDrawerOpen } />
     );
 };
 

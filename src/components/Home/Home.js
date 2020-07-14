@@ -59,7 +59,7 @@ const Typewriter = styled.h1`
 const Home = props => {
 
     return (
-        <HomePage>
+        <HomePage ref={ props.home }>
             <Greet><Typewriter>Hello.</Typewriter></Greet>
             <ScrollDown section="about" />
         </HomePage>

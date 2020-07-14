@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useSelector } from 'react-redux';
+
 const DrawerToggleDiv = styled.div`
     width: 40px;
     height: 50px;
@@ -25,16 +27,18 @@ const DrawerToggleDiv = styled.div`
 const MenuDiv = styled.div`
     width: 90%;
     height: 3px;
-    background-color: white;
+    background-color: ${props => props.menuDivColor};
 `;
 
 const DrawerToggle = props => {
 
+    const menuDivColor = useSelector(state => state.home.menuDivColor);
+
     return (
-        <DrawerToggleDiv onClick={ props.clicked } ref={props.menuDiv}>
-            <MenuDiv ref={props.menuDiv1}/>
-            <MenuDiv ref={props.menuDiv2}/>
-            <MenuDiv ref={props.menuDiv3}/>
+        <DrawerToggleDiv onClick={ props.clicked } ref={ props.menuDiv }>
+            <MenuDiv ref={ props.menuDiv1 } menuDivColor={ menuDivColor } />
+            <MenuDiv ref={ props.menuDiv2 } menuDivColor={ menuDivColor } />
+            <MenuDiv ref={ props.menuDiv3 } menuDivColor={ menuDivColor } />
         </DrawerToggleDiv>
     );
 };

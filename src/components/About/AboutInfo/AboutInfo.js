@@ -21,6 +21,10 @@ const AboutDiv = styled.div`
         width: 90%;
     }
 
+    @media (max-width: 850px) {
+        top: 5vh;
+    }
+
     @media( max-width: 650px) {
         flex-flow: column;
     }
@@ -128,7 +132,7 @@ const AboutInfo = props => {
                     <SwipeLeftDiv>
                         <SwipeLeft onClick={ props.swipeLeft }>
                             <FaArrowLeft />
-                            <span style={ { marginLeft: '3px' } }>Swipe Left</span>
+                            <span style={ { marginLeft: '3px' } }>Swipe</span>
                         </SwipeLeft>
                     </SwipeLeftDiv>
                 </div>

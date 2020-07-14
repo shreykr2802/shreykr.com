@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import NavigationItems from '../NavigationItems/NavigationItems';
 
 const ToolbarDiv = styled.div`
-    background: #296c92;
     height: 50px;
     width: 100%;
     top: 0;
@@ -16,6 +15,7 @@ const ToolbarDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     z-index: 10;
+    background: #296c92;
 
     @media(max-width: 600px) {
         display: none;

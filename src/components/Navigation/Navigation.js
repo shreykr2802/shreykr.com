@@ -1,10 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import SideDrawer from './SideDrawer/SideDrawer';
 import Toolbar from './Toolbar/Toolbar';
 import DrawerToggle from './DrawerToggle/DrawerToggle';
 import Backdrop from '../UI/Backdrop/Backdrop';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setMenuDivColor, setShowSideDrawer } from '../../store/actions/home';
+import usePrevious from '../../hooks/usePrevious';
 
 const Nav = styled.nav`
     height: 50px;
@@ -17,7 +22,13 @@ const Nav = styled.nav`
 
 const Navigation = props => {
 
-    const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+    const sideDrawerOpen = useSelector(state => state.home.isOpen);
+
+    const divColor = useSelector(state => state.home.menuDivColor);
+
+    const menuDivColor = usePrevious(divColor);
+
+    const dispatch = useDispatch();
 
     let menuDiv1 = useRef();
     let menuDiv2 = useRef();
@@ -25,10 +36,14 @@ const Navigation = props => {
     let menuDiv = useRef();
 
     const showSideDrawerToggle = () => {
-        setSideDrawerOpen(prevState => {
-            prevState ? convertXToMenu() : convertMenuToX();
-            return !prevState;
-        });
+        if(sideDrawerOpen) {
+            dispatch(setMenuDivColor(menuDivColor));
+            convertXToMenu();
+        } else {
+            dispatch(setMenuDivColor('white'));
+            convertMenuToX();
+        }
+        dispatch(setShowSideDrawer(!sideDrawerOpen));
     };
 
     const convertMenuToX = () => {
@@ -51,15 +66,18 @@ const Navigation = props => {
 
     const sideDrawerClosedHandler = () => {
         convertXToMenu();
-        setSideDrawerOpen(false);
-    }
+        dispatch(setShowSideDrawer(false));
+    };
 
     return (
         <Nav>
             <Toolbar />
-            <DrawerToggle clicked={ showSideDrawerToggle } menuDiv1={ menuDiv1 } menuDiv2={ menuDiv2 } menuDiv3={ menuDiv3 } menuDiv={ menuDiv } />
-            <SideDrawer open={ sideDrawerOpen } />
-            <Backdrop closed={ sideDrawerClosedHandler } show={ sideDrawerOpen } />
+            <DrawerToggle clicked={ showSideDrawerToggle } 
+                menuDiv1={ menuDiv1 } menuDiv2={ menuDiv2 } 
+                menuDiv3={ menuDiv3 } menuDiv={ menuDiv } 
+                />
+            <SideDrawer />
+            <Backdrop closed={ sideDrawerClosedHandler } />
         </Nav>
     );
 };
