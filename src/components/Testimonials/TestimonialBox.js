@@ -6,14 +6,14 @@ import testimonialIcon from '../../assets/images/shreykr.png';
 const Testimonials = styled.div`
     height: 50vh;
     width: 30%;
-    border: 0;
+    border: 1px solid #296c92;
     box-sizing: border-box;
-    border-radius: 30px;
-    box-shadow: 0px 10px 20px 1px #296c92;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px 1px #cadcfc;
     margin: -15px;
 
     &:hover {
-        box-shadow: 0px 10px 20px 5px #296c92;
+        box-shadow: 0px 10px 20px 5px #cadcfc;
         transform: translateY(-5px);
     }
 
@@ -29,11 +29,6 @@ const TestimonialImage = styled.img`
     width: 90px;
     border-radius: 50%;
     top: -45px;
-    left: calc((100vw/3)/2 - 45px - 30px);
-
-    @media(max-width: 1000px) {
-        left: calc((100vw)/2 - 45px - 30px);
-    }
 `;
 
 const TestimonialContent = styled.div`

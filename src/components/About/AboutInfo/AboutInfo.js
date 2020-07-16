@@ -119,7 +119,7 @@ const AboutInfo = props => {
             <AboutContentsDesc>
                 <div>
                     <span className="title">I am Shrey</span><br />
-                    <span className="designation">Front End Developer</span>
+                    <span className="designation">An Enthusiatic Web Developer | Quick Learner | Keen Observer of things</span>
                     <div className="underline"></div>
                     <div className="about-description">
                         <p>Born in Bihar and moved all across India. I have completed my schooling from various parts of the India!</p>

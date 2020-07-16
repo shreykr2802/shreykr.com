@@ -9,11 +9,12 @@ const TestimonialsPage = styled.section`
     width: 100%;
     user-select: none;
     overflow: hidden;
+    text-align: center;
 `;
 
 const TestimonialContents = styled.div`
     position: relative;
-    top: 25vh;
+    top: 5vh;
     width: 100vw;
     height: 50vh;
     display: flex;
@@ -22,15 +23,42 @@ const TestimonialContents = styled.div`
     justify-content: space-around;
 
     @media(max-width: 1000px) {
-        top: 5vh;
+        top: 0vh;
         height: 90vh;
         flex-flow: column;
+    }
+`;
+
+const TestimonialHeading = styled.h1`
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: gray;
+    margin-top: 6vh;
+
+    @media(max-width: 1000px) {
+        font-size: 1rem;
+        margin-top: 1vh;
+    }
+`;
+
+const DoubleQt = styled.span`
+    margin: 0;
+    padding: 0;
+    font-size: 6rem;
+    color: #296c92;
+    font-family: 'Montserrat', sans-serif;
+
+    @media(max-width: 1000px) {
+        font-size: 3rem;
     }
 `;
 
 const Testimonials = props => {
     return (
         <TestimonialsPage id="testimonials">
+            <TestimonialHeading>A word from people</TestimonialHeading>
+            <DoubleQt>&ldquo;</DoubleQt>
             <TestimonialContents>
                 <TestimonialBox />
                 <TestimonialBox />

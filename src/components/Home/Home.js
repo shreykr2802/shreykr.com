@@ -8,7 +8,6 @@ const HomePage = styled.section`
     left: 0;
     height: 100vh;
     width: 100%;
-    text-align: center;
     background: #296c92;
     text-align: center;
     display: flex;
