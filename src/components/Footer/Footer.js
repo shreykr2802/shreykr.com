@@ -63,6 +63,9 @@ const Footer = props => {
         <FooterBox>
             <FooterContents>
                 <SectionTitle>© Shrey Kumar</SectionTitle>
+                <SectionContent>
+                    <NavButton href="mailto:shreykr2802@gmail.com" target="_blank" rel="noopener noreferrer">shreykr2802@gmail.com</NavButton>
+                </SectionContent>
             </FooterContents>
             <FooterContents>
                 <SectionTitle>Explore</SectionTitle>

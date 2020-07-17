@@ -5,6 +5,8 @@ import About from '../../components/About/About';
 import Navigation from '../../components/Navigation/Navigation';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import Footer from '../../components/Footer/Footer';
+import Works from '../../components/Works/Works';
+import Contact from '../../components/Contact/Contact';
 
 import { useDispatch } from 'react-redux';
 
@@ -40,6 +42,8 @@ const Layout = props => {
             <Home home={ home } />
             <About about={ about } />
             <Testimonials testimonials = {testimonials} />
+            <Works />
+            <Contact />
             <Footer />
         </Fragment>
     );

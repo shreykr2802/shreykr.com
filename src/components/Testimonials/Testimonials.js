@@ -14,7 +14,7 @@ const TestimonialsPage = styled.section`
 
 const TestimonialContents = styled.div`
     position: relative;
-    top: 5vh;
+    top: 7vh;
     width: 100vw;
     height: 50vh;
     display: flex;
@@ -35,6 +35,7 @@ const TestimonialHeading = styled.h1`
     font-family: 'Montserrat', sans-serif;
     color: gray;
     margin-top: 6vh;
+    margin-bottom: 0;
 
     @media(max-width: 1000px) {
         font-size: 1rem;
@@ -54,11 +55,20 @@ const DoubleQt = styled.span`
     }
 `;
 
+const Underline = styled.div`
+    width: 30%;
+    height: 5px;
+    background-color: #296c92;
+    border-radius: 10px;
+    left: 35%;
+    position: absolute;
+`;
+
 const Testimonials = props => {
     return (
         <TestimonialsPage id="testimonials">
-            <TestimonialHeading>A word from people</TestimonialHeading>
-            <DoubleQt>&ldquo;</DoubleQt>
+            <TestimonialHeading><DoubleQt>&ldquo;</DoubleQt>A word from people</TestimonialHeading>
+            <Underline />   
             <TestimonialContents>
                 <TestimonialBox />
                 <TestimonialBox />
