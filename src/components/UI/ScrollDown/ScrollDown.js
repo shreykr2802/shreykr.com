@@ -43,7 +43,7 @@ const ScrollDown = props => {
 
     const scrollToNextHandler = event => {
         event.preventDefault();
-        const aboutElement = document.getElementById(props.section);
+        const aboutElement = props.section.current;
         let y = aboutElement.getBoundingClientRect().top + window.scrollY;
         window.scroll({
             top: y,

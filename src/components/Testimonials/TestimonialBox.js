@@ -31,9 +31,9 @@ const TestimonialImage = styled.img`
     top: -45px;
 `;
 
-const TestimonialContent = styled.div`
+// const TestimonialContent = styled.div`
 
-`;
+// `;
 
 const TestimonialBox = props => {
     return (

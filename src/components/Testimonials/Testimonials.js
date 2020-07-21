@@ -14,7 +14,7 @@ const TestimonialsPage = styled.section`
 
 const TestimonialContents = styled.div`
     position: relative;
-    top: 7vh;
+    top: 12vh;
     width: 100vw;
     height: 50vh;
     display: flex;
@@ -23,7 +23,7 @@ const TestimonialContents = styled.div`
     justify-content: space-around;
 
     @media(max-width: 1000px) {
-        top: 0vh;
+        top: 2vh;
         height: 90vh;
         flex-flow: column;
     }
@@ -66,7 +66,7 @@ const Underline = styled.div`
 
 const Testimonials = props => {
     return (
-        <TestimonialsPage id="testimonials">
+        <TestimonialsPage ref= { props.testimonials }>
             <TestimonialHeading><DoubleQt>&ldquo;</DoubleQt>A word from people</TestimonialHeading>
             <Underline />   
             <TestimonialContents>

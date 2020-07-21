@@ -71,12 +71,12 @@ const Navigation = props => {
 
     return (
         <Nav>
-            <Toolbar />
+            <Toolbar home={ props.home } about = { props.about } testimonials = { props.testimonials } works = { props.works } contact ={ props.contact }/>
             <DrawerToggle clicked={ showSideDrawerToggle } 
                 menuDiv1={ menuDiv1 } menuDiv2={ menuDiv2 } 
                 menuDiv3={ menuDiv3 } menuDiv={ menuDiv } 
                 />
-            <SideDrawer />
+            <SideDrawer home={ props.home } about = { props.about } testimonials = { props.testimonials } works = { props.works } contact ={ props.contact } closed = { sideDrawerClosedHandler}/>
             <Backdrop closed={ sideDrawerClosedHandler } />
         </Nav>
     );

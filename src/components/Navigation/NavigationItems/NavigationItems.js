@@ -26,6 +26,7 @@ const NavDivLeft = styled.div`
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    cursor: pointer;
 
     @media( max-width: 1000px) {
         font-size: 0.8rem;
@@ -60,6 +61,7 @@ const NavButton = styled.a`
     color: white;
     font-weight: 600;
     padding: 10px;
+    cursor: pointer;
 
     &:active {
         color: #296c92;
@@ -85,18 +87,28 @@ const Logo = styled.img`
 
 const NavigationItems = props => {
 
+    const goToSection = (event, section) => {
+        const secEle = props[section].current;
+        event.preventDefault();
+        let y = secEle.getBoundingClientRect().top + window.scrollY;
+        window.scroll({
+            top: y,
+            behavior: 'smooth'
+        });
+        props.closed && props.closed();
+    }
+
     return (
         <NavigationItemsDiv>
-            <NavDivLeft>
+            <NavDivLeft onClick={ (event) => goToSection(event, "home") }>
                 <Logo src={ shrey } />
                 <div>Shrey Kumar</div>
             </NavDivLeft>
             <NavDivRight>
-                <NavButton href="#">Home</NavButton>
-                <NavButton href="#about">About</NavButton>
-                <NavButton href="#testimonials">Testimonials</NavButton>
-                <NavButton href="#works">Works</NavButton>
-                <NavButton href="#contact">Contact</NavButton>
+                <NavButton onClick={ (event) => goToSection(event, "about") }>About</NavButton>
+                <NavButton onClick={ (event) => goToSection(event, "testimonials") }>Testimonials</NavButton>
+                <NavButton onClick={ (event) => goToSection(event, "works") }>Works</NavButton>
+                <NavButton onClick={ (event) => goToSection(event, "contact") }>Contact</NavButton>
             </NavDivRight>
         </NavigationItemsDiv>
     );

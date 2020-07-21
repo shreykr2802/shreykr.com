@@ -27,7 +27,7 @@ const Toolbar = props => {
 
     return (
         <ToolbarDiv>
-            <NavigationItems />
+            <NavigationItems home={ props.home } about = { props.about } testimonials = { props.testimonials } works = { props.works } contact ={ props.contact }/>
         </ToolbarDiv>
     );
 };

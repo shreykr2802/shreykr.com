@@ -60,7 +60,7 @@ const Home = props => {
     return (
         <HomePage ref={ props.home }>
             <Greet><Typewriter>Hello.</Typewriter></Greet>
-            <ScrollDown section="about" />
+            <ScrollDown section = { props.about }/>
         </HomePage>
     );
 };

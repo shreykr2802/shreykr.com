@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import './Contact.css';
 
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
 
 const ContactPage = styled.section`
     background: white;
-    height: 50vh;
+    height: 100vh;
     width: 100%;
     user-select: none;
     overflow: hidden;
@@ -17,12 +18,9 @@ const ContactHeading = styled.h1`
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     color: gray;
-    margin-top: 2vh;
+    top: 7vh;
+    position: relative;
 
-    @media(max-width: 1000px) {
-        font-size: 1rem;
-        margin-top: 1vh;
-    }
 `;
 
 const Underline = styled.div`
@@ -31,7 +29,8 @@ const Underline = styled.div`
     background-color: #296c92;
     border-radius: 10px;
     left: 35%;
-    position: absolute;
+    position: relative;
+    top: 6vh;
 `;
 
 const ContactForm = styled.form`
@@ -40,12 +39,18 @@ const ContactForm = styled.form`
     align-items: center;
     justify-content: space-evenly;
     height: 80%;
+    position: relative;
+    top: 7vh;
 `;
 
 const ContactLineItem = styled.div`
     display: flex;
     flex-flow: row;
     width: 30%;
+
+    @media(max-width: 768px){    
+        width: 50%;
+    }
 `;
 
 const ContactLineItemTA = styled.div`
@@ -93,6 +98,36 @@ const ContactButton = styled.button`
     flex-flow: row;
     align-items: center;
     justify-content: space-around;
+    cursor: pointer;
+
+    @media(max-width: 1024px) {
+        width: 20%;
+    }
+
+    @media(max-width: 512px) {
+        width: 30%;
+    }
+`;
+
+const ToolTip = styled.div`
+    cursor: help;
+    &::before {
+        position: absolute;
+        content: "This is optional. Be assured that it won\'t be shared with anyone else";
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.6rem;
+        display: none;
+        background: gray;
+        height: 25px;
+        width: 250px;
+        color: white;
+        border-radius: 20px;
+        transform: translate(0, -30px);
+    }
+    &:hover::before {
+        display: block;
+
+    }
 `;
 
 const Contact = props => {
@@ -104,8 +139,6 @@ const Contact = props => {
     const [message, setMessage] = useState('');
 
     const [validName, setValidName] = useState(false);
-    const [validPhone, setValidPhone] = useState(false);
-    const [validEmail, setValidEmail] = useState(false);
     const [validSubject, setValidSubject] = useState(false);
     const [validMessage, setValidMessage] = useState(false);
 
@@ -118,18 +151,19 @@ const Contact = props => {
     };
 
     const inputPhoneChange = event => {
-        var phoneformat = /^\d{10}$/;
+        // var phoneformat = /^\d{10}$/;
         const value = event.target.value;
-        const match = phoneformat.test(value);
-        setValidPhone(match);
+        // const match = phoneformat.test(value);
+        // setValidPhone(match);
         setPhone(value);
     };
 
     const inputEmailChange = event => {
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        // eslint-disable-next-line no-useless-escape
+        // var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         const value = event.target.value;
-        const match = mailformat.test(value);
-        setValidEmail(match);
+        // const match = mailformat.test(value);
+        // setValidEmail(match);
         setEmail(value);
     };
 
@@ -147,7 +181,7 @@ const Contact = props => {
 
     const submitContactInformation = event => {
         event.preventDefault();
-        if (validName && validPhone && validSubject && validEmail && validMessage) {
+        if (validName && validSubject && validMessage) {
             const form = event.target;
             const data = new FormData(form);
             data._replyto = email;
@@ -167,37 +201,53 @@ const Contact = props => {
             };
             xhr.send(data);
         } else {
-            console.log("Something is not valid");
+            if (!validName) {
+                shakeInvalidInput("name");
+            }
+            if (!validSubject) {
+                shakeInvalidInput("subject");
+            }
+            if (!validMessage) {
+                shakeInvalidInput("message");
+            }
         }
     };
 
+    const shakeInvalidInput = (name) => {
+        const element = document.getElementById(name);
+        element.classList.add("invalid");
+        setTimeout(() => {
+            element.classList.remove("invalid");
+        }, 200);
+    }
+
     return (
-        <ContactPage>
+        <ContactPage ref={ props.contact }>
             <ContactHeading>Feel free to contact me!</ContactHeading>
             <Underline />
             <ContactForm onSubmit={ submitContactInformation } action="https://formspree.io/moqkqkgo" method="POST">
-                <ContactLineItem>
-                    <ContactInput placeholder="Name" value={ name } onChange={ inputNameChange } type="text" name="name"/>
+                <ContactLineItem id="name" className="contactInput">
+                    <ContactInput placeholder="Name" value={ name } onChange={ inputNameChange } type="text" name="name" />
                     { validName ? <FaCheck color="green" size="1rem" /> : <FaTimes color="red" size="1rem" /> }
                 </ContactLineItem>
-                <ContactLineItem>
-                    <ContactInput placeholder="Phone" value={ phone } onChange={ inputPhoneChange } type="text" maxLength="10" name="phone"/>
-                    { validPhone ? <FaCheck color="green" size="1rem" /> : <FaTimes color="red" size="1rem" /> }
+                <ContactLineItem id="phone" className="contactInput">
+                    <ContactInput placeholder="Phone" value={ phone } onChange={ inputPhoneChange } type="text" maxLength="10" name="phone" />
+                    <ToolTip><FaInfoCircle size="1rem" color="#296c92" /></ToolTip>
                 </ContactLineItem>
-                <ContactLineItem>
-                    <ContactInput placeholder="Your Email" value={ email } onChange={ inputEmailChange } type="email" name="email"/>
-                    { validEmail ? <FaCheck color="green" size="1rem" /> : <FaTimes color="red" size="1rem" /> }
+                <ContactLineItem id="email" className="contactInput">
+                    <ContactInput placeholder="Your Email" value={ email } onChange={ inputEmailChange } type="email" name="email" />
+                    <ToolTip><FaInfoCircle size="1rem" color="#296c92"/></ToolTip>
                 </ContactLineItem>
-                <ContactLineItem>
-                    <ContactInput placeholder="Subject" value={ subject } onChange={ inputSubjectChange } type="text" name="subject"/>
+                <ContactLineItem id="subject" className="contactInput">
+                    <ContactInput placeholder="Subject" value={ subject } onChange={ inputSubjectChange } type="text" name="subject" />
                     { validSubject ? <FaCheck color="green" size="1rem" /> : <FaTimes color="red" size="1rem" /> }
                 </ContactLineItem>
-                <ContactLineItemTA>
-                    <ContactTextArea placeholder="Message" value={ message } onChange={ inputMessageChange } name="message"/>
+                <ContactLineItemTA id="message" className="contactInput">
+                    <ContactTextArea placeholder="Message" value={ message } onChange={ inputMessageChange } name="message" />
                     { validMessage ? <FaCheck color="green" size="1rem" /> : <FaTimes color="red" size="1rem" /> }
                 </ContactLineItemTA>
                 <ContactButton>
-                    CONTACT {' '}
+                    CONTACT { ' ' }
                     { status ? <FaCheck size="1rem" /> : <FaTimes size="1rem" /> }
                 </ContactButton>
             </ContactForm>

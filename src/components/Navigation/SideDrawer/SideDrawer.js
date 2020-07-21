@@ -38,7 +38,7 @@ const SideDrawer = props => {
 
     return (
         <SideDrawerDiv open={ sideDrawerOpen } >
-            <NavigationItems sideDrawer={ props.open }  />
+            <NavigationItems home={ props.home } about={ props.about } testimonials={ props.testimonials } works={ props.works } contact={ props.contact } closed={ props.closed } />
         </SideDrawerDiv>
     );
 };

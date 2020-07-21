@@ -7,6 +7,7 @@ import Testimonials from '../../components/Testimonials/Testimonials';
 import Footer from '../../components/Footer/Footer';
 import Works from '../../components/Works/Works';
 import Contact from '../../components/Contact/Contact';
+import Resume from '../../components/Resume/Resume';
 
 import { useDispatch } from 'react-redux';
 
@@ -20,6 +21,8 @@ const Layout = props => {
     let home = useRef();
     let about = useRef();
     let testimonials = useRef();
+    let works = useRef();
+    let contact = useRef();
 
     const listenScrollEvent = useCallback((event) => {
         if (window.scrollY > about.current.clientHeight - 50) {
@@ -38,12 +41,13 @@ const Layout = props => {
 
     return (
         <Fragment>
-            <Navigation navigation={ navigation } />
-            <Home home={ home } />
+            <Navigation navigation={ navigation } home={ home } about={ about } testimonials = { testimonials } works = { works } contact ={ contact }/>
+            <Home home={ home } about = { about }/>
             <About about={ about } />
-            <Testimonials testimonials = {testimonials} />
-            <Works />
-            <Contact />
+            <Resume />
+            <Testimonials testimonials={ testimonials } />
+            <Works works={ works } />
+            <Contact contact={ contact } />
             <Footer />
         </Fragment>
     );

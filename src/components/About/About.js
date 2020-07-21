@@ -69,7 +69,7 @@ const About = props => {
     }
 
     return (
-        <AboutPage id="about" ref={ props.about }>
+        <AboutPage ref={ props.about }>
             <CorouselWrapper onMouseDown={ lockHandler } onTouchStart={ lockHandler }
                 onMouseMove={ clickAndDragHandler } onTouchMove={ clickAndDragHandler }
                 onMouseUp={ onClickAndDragEnd } onTouchEnd={ onClickAndDragEnd }
